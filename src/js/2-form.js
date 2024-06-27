@@ -5,7 +5,7 @@ let formData = {
 
 const localValue = JSON.parse(localStorage.getItem('feedback-form-state'));
 function emptyLocal() {
-    if (localValue !== null) {
+    if (localValue) {
         formData = localValue;
         email.value = localValue.email;
         message.value = localValue.message;
@@ -34,7 +34,7 @@ function handlerInput() {
 
 function handlerSubmit(evt) {
 evt.preventDefault();
-    if (formData.email === '' || formData.message === '') {
+    if (!localStorage.getItem('feedback-form-state')) {
       return alert('Fill please all fields');
     }
     console.log(localStorage.getItem('feedback-form-state'));
