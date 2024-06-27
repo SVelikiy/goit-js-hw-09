@@ -34,7 +34,7 @@ function handlerInput() {
 
 function handlerSubmit(evt) {
 evt.preventDefault();
-    if (!localStorage.getItem('feedback-form-state')) {
+    if (email.value === '' || message.value === '') {
       return alert('Fill please all fields');
     }
     console.log(localStorage.getItem('feedback-form-state'));
