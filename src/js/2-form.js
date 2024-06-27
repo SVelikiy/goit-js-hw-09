@@ -27,6 +27,7 @@ function handlerInput() {
     email: email.value,
     message: message.value,
     };
+    console.log(formData);
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
@@ -34,7 +35,7 @@ function handlerInput() {
 
 function handlerSubmit(evt) {
 evt.preventDefault();
-    if (email.value === '' || message.value === '') {
+    if (formData.email === '' || formData.message === '') {
       return alert('Fill please all fields');
     }
     console.log(localStorage.getItem('feedback-form-state'));
@@ -43,3 +44,5 @@ evt.preventDefault();
 }
 
 emptyLocal();
+
+
