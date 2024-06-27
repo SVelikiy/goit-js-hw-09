@@ -14,9 +14,6 @@ function emptyLocal() {
     else return;
 }
 
-
-  
-
 const form = document.querySelector('.feedback-form');
 const email = document.querySelector('input')
 const message = document.querySelector('textarea')
@@ -30,16 +27,19 @@ function handlerInput() {
     email: email.value,
     message: message.value,
     };
+    localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
 
 
 function handlerSubmit(evt) {
 evt.preventDefault();
-    if (formData.email === '' && formData.message === '') {
-        return alert('Fill please all fields');
+    if (formData.email === '' || formData.message === '') {
+      return alert('Fill please all fields');
     }
-localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+    console.log(localStorage.getItem('feedback-form-state'));
+    localStorage.clear();
+    form.reset();
 }
 
 emptyLocal();

@@ -18,8 +18,8 @@ color: #2e2f42;
 display: flex;
 flex-direction: column;
 gap : 8px;
-border-radius: 8px;
-width: 360px;
+/* border-radius: 8px;
+width: 360px; */
 }
 
 button {
