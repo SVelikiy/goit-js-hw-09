@@ -27,7 +27,6 @@ function handlerInput() {
     email: email.value,
     message: message.value,
     };
-    console.log(formData);
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
@@ -38,7 +37,7 @@ evt.preventDefault();
     if (formData.email === '' || formData.message === '') {
       return alert('Fill please all fields');
     }
-    console.log(localStorage.getItem('feedback-form-state'));
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
     localStorage.clear();
     form.reset();
 }
